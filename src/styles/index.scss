@@ -30,7 +30,9 @@ body {
 .menuContainer {
     width: 16.5rem;
     height: 100vh;
-    overflow-y: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
 }
 
 .contentContainer {

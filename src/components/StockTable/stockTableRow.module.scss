@@ -7,6 +7,7 @@
     border-bottom: 1px solid #f0f1f3;
     background: #fff;
     z-index: -1;
+    
 }
 
 .td {
@@ -16,10 +17,12 @@
     flex: 1;
     border-bottom: 1px solid #f0f1f3;
     background: #fff;
+    height: 2.75rem;
+   
 }
 
 .td1 {
-    width: 35%;
+    width: 20%;
     text-align: center;
     display: flex;
     padding-left: 1.375rem;
@@ -30,7 +33,7 @@
 }
 
 .td2 {
-    width: 35%;
+    width: 15%;
     text-align: center;
     display: flex;
     padding-left: 1.375rem;
@@ -42,7 +45,7 @@
 }
 
 .td3 {
-    width: 30%;
+    width: 15%;
     text-align: center;
     display: flex;
     padding-left: 1.375rem;
@@ -53,17 +56,46 @@
     justify-content: center;
 }
 
+.td4{
+    width: 15%;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+
+
+.td5{
+    width: 15%;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.td6{
+    width: 22%;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+
 
 .th1,
 .th2,
 .th3,
 .th4,
 .th5,
-.th6,
-.th7,
-.th8 {
-    // @include typography.font-body-3;
+.th6 {
+    @include typography.body-4;
     color: #4a4c56;
+   
 }
 
 /*-------action--------*/

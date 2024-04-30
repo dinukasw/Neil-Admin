@@ -75,3 +75,12 @@ $font-secondary: "Inter", sans-serif;
     font-weight: 500;
     line-height: normal;
 }
+
+
+@mixin body-5 {
+    font-family: $font-main;
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}

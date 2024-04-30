@@ -29,10 +29,12 @@ const Menu: React.FC = () => {
             <div className={styles.menuContainer}>
                 <p className={styles.menuTitle}>Home</p>
                 <hr />
-                <div className={styles.menuItem}>
-                    <img src={DashboardIcon} alt="Dashboard Icon" />
-                    <p>Dashboard</p>
-                </div>
+                <NavLink to={'/'}>
+                    <div className={styles.menuItem}>
+                        <img src={DashboardIcon} alt="Dashboard Icon" />
+                        <p>Dashboard</p>
+                    </div>
+                </NavLink>
                 <NavLink to={'/daily-stock-update'}>
                     <div className={styles.menuItem}>
                         <img src={StockIcon} alt="Dashboard Icon" />

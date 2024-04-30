@@ -6,6 +6,8 @@ import Footer from "./components/Footer/Footer";
 import AllProducts from "./pages/AllProducts/AllProducts";
 import AddProducts from "./pages/AddProducts/AddProducts";
 import DailyStockUpdate from "./pages/DailyStockUpdate/DailyStockUpdate";
+import SignIn from "./pages/Signin/SignIn";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 
 function App() {
     const Layout = () => {
@@ -25,39 +27,41 @@ function App() {
         );
     };
 
-
     const router = createBrowserRouter([
         {
-          path: "/",
-          element: <Layout />,
-          children: [
-            {
-              path: "/",
-              element: <Dashboard />
+            path: "/",
+            element: <Layout />,
+            children: [
+                {
+                    path: "/",
+                    element: <Dashboard />,
+                },
+                {
+                    path: "/products",
+                    element: <AllProducts />,
+                },
+                {
+                    path: "/add-products",
+                    element: <AddProducts />,
+                },
+                {
+                    path: "/daily-stock-update",
+                    element: <DailyStockUpdate />,
+                },
+            ],
+        },
+        {
+            path: "/signin",
+            element: <SignIn />,
+        },
+        {
+            path: "/forgot-password",
+            element: <ForgotPassword />,
 
-            },
-            {
-                path: "/products",
-                element: <AllProducts />
-            },
-            {
-                path: "/add-products",
-                element: <AddProducts />
-            },
-            {
-                path: "/daily-stock-update",
-                element: <DailyStockUpdate />
-            }
-          ]
         }
-
-       
     ]);
 
-
     return <RouterProvider router={router} />;
-  
-    
 }
 
 export default App;

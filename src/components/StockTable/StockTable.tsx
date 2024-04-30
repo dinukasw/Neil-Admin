@@ -56,8 +56,11 @@ const StockTable: React.FC<TableComponentProps> = ({ data }) => {
             <thead className={Styles.tableHead}>
                 <tr className={Styles.tr}>
                     <th className={Styles.th1}>Product</th>
-                    <th className={Styles.th2}>SKU</th>
-                    <th className={Styles.th3}>Action</th>
+                    <th className={Styles.th2}>Available Stock</th>
+                    <th className={Styles.th3}>Remaining Stock</th>
+                    <th className={Styles.th4}>Sold Units</th>
+                    <th className={Styles.th5}>Price Per Unit</th>
+                    <th className={Styles.th6}>Total Sales</th>
                 </tr>
             </thead>
             <tbody className={Styles.tableBody}>{renderRows()}</tbody>

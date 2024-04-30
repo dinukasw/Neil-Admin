@@ -71,7 +71,7 @@
 .tableFoot {
     border-top: 1px solid #f0f1f3;
     background: #fff;
-    height: 3.75rem;
+    height: 3.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -88,11 +88,12 @@
 .movePageButtons {
     display: flex;
     gap: 0.5rem;
+    margin-right: 5rem;
 
     .moveButton {
         display: flex;
-        width: 2rem;
-        height: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
         padding: 0.375rem;
         justify-content: center;
         align-items: center;
@@ -106,8 +107,8 @@
 
     .prevButton, .nextButton {
         display: flex;
-        width: 2rem;
-        height: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
         padding: 0.375rem;
         justify-content: center;
         align-items: center;
@@ -125,6 +126,6 @@
 
     .moveButton.active {
         color: #fff;
-        background: #004C45; 
+        background: #B28E00;
     }
 }

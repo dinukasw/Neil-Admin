@@ -15,7 +15,7 @@ const Menu: React.FC = () => {
     const [productsDropdownOpen, setProductsDropdownOpen] =
         useState<boolean>(false);
     const [locationDropdownOpen, setLocationDropdownOpen] =
-        useState<boolean>(false);
+        useState<boolean>(true);
 
     const toggleReportsDropdown = () => {
         setReportsDropdownOpen(!reportsDropdownOpen);
@@ -41,7 +41,11 @@ const Menu: React.FC = () => {
                         className={styles.dropDownMenuItemTop}
                         onClick={toggleLocationDropdown}
                     >
-                        <img className={styles.userIcon} src={UserIcon} alt="Reports Icon" />
+                        <img
+                            className={styles.userIcon}
+                            src={UserIcon}
+                            alt="Reports Icon"
+                        />
                         <p>Locations</p>
                         <DownOutlined className={styles.dropdownIcon} />
                     </div>
@@ -54,10 +58,13 @@ const Menu: React.FC = () => {
                         </div>
                     )}
                 </div>
-                <div className={styles.menuItem}>
-                    <img className={styles.userIcon} src={UserIcon}  />
-                    <p>Users</p>
-                </div>
+                <NavLink to={"users"}>
+                    <div className={styles.menuItem}>
+                        <img className={styles.userIcon} src={UserIcon} />
+
+                        <p>Users</p>
+                    </div>
+                </NavLink>
                 <p className={styles.menuTitle}>Home</p>
                 <hr />
                 <NavLink to={"/"}>

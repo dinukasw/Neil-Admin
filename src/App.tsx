@@ -8,6 +8,8 @@ import AddProducts from "./pages/AddProducts/AddProducts";
 import DailyStockUpdate from "./pages/DailyStockUpdate/DailyStockUpdate";
 import SignIn from "./pages/Signin/SignIn";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import Users from "./pages/Users/Users";
+import AddUser from "./pages/AddUser/AddUser";
 
 function App() {
     const Layout = () => {
@@ -57,6 +59,15 @@ function App() {
         {
             path: "/forgot-password",
             element: <ForgotPassword />,
+
+        },
+        {
+            path: "/users",
+            element: <Users />,
+        },
+        {
+            path: '/add-user',
+            element: <AddUser />,
 
         }
     ]);

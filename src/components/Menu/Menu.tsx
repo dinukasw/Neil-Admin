@@ -91,9 +91,15 @@ const Menu: React.FC = () => {
                     {reportsDropdownOpen && (
                         <div className={styles.dropDownContent}>
                             <ul>
-                                <li>Daily Stock</li>
-                                <li>Weekly Stock</li>
-                                <li>Monthly Stock</li>
+                                <NavLink to={"daily-stock-report"}>
+                                    <li>Daily Stock</li>
+                                </NavLink>
+                                <NavLink to={"weekly-stock-report"}>
+                                    <li>Weekly Stock</li>
+                                </NavLink>
+                                <NavLink to={"monthly-stock-report"}>
+                                    <li>Monthly Stock</li>
+                                </NavLink>
                             </ul>
                         </div>
                     )}

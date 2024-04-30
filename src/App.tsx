@@ -10,6 +10,9 @@ import SignIn from "./pages/Signin/SignIn";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import Users from "./pages/Users/Users";
 import AddUser from "./pages/AddUser/AddUser";
+import DailyStockReport from "./pages/DailyStockReport/DailyStockReport";
+import WeeklyStockReport from "./pages/WeekltStockReport/WeeklyStockReport";
+import MonthlystockReport from "./pages/MothlyStockReport/MonthlyStockReport";
 
 function App() {
     const Layout = () => {
@@ -50,6 +53,19 @@ function App() {
                     path: "/daily-stock-update",
                     element: <DailyStockUpdate />,
                 },
+                {
+                    path: "daily-stock-report",
+                    element: <DailyStockReport />,
+                },
+                {
+                    path: "weekly-stock-report",
+                    element: <WeeklyStockReport />,
+                },
+                {
+                    path: "monthly-stock-report",
+                    element: <MonthlystockReport />,
+                    
+                }
             ],
         },
         {

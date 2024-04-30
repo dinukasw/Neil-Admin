@@ -48,7 +48,7 @@
 .iconContainer {
     display: flex;
     border-radius: 6.25rem;
-    background: #004c45;
+    background: #B88E2F;
     padding: 1.5rem;
 
     img {
@@ -70,7 +70,8 @@
 
 .bottomContainer {
     display: flex;
-    justify-content: space-between;
+    gap: 2rem;
+    justify-content: center;
     width: 100%;
 
     .cancelButton {
@@ -81,5 +82,15 @@
         cursor: pointer;
         border-radius: 0.5rem;
         border: 1px solid var(--Neutral-Gray-Gray-200, #c2c6ce);
+    }
+
+    .deleteButton {
+        // @include typography.font-body-6;
+        color: #fff;
+        padding: 0.625rem 0.875rem;
+        background: #B88E2F;
+        cursor: pointer;
+        border-radius: 0.5rem;
+        border: none;
     }
 }

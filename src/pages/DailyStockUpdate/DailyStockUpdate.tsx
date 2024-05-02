@@ -56,9 +56,11 @@ const DailyStockUpdate = () => {
                         <label htmlFor="">Cost of remaining stock</label>
                         <input type="number" />
                     </div>
+                    <button  className={styles.addButton}>Add</button>
                 </div>
                 <StockTable data={tableData} />
             </div>
+            <button className={styles.submitButton}>Submit</button>
         </div>
     );
 };

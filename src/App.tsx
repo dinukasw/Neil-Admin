@@ -13,6 +13,7 @@ import AddUser from "./pages/AddUser/AddUser";
 import DailyStockReport from "./pages/DailyStockReport/DailyStockReport";
 import WeeklyStockReport from "./pages/WeekltStockReport/WeeklyStockReport";
 import MonthlystockReport from "./pages/MothlyStockReport/MonthlyStockReport";
+import ViewProducts from "./pages/ViewProduct/ViewProduct";
 
 function App() {
     const Layout = () => {
@@ -50,6 +51,10 @@ function App() {
                     element: <AddProducts />,
                 },
                 {
+                    path: "/add-products/:id",
+                    element: <ViewProducts />,
+                },
+                {
                     path: "/daily-stock-update",
                     element: <DailyStockUpdate />,
                 },
@@ -64,8 +69,8 @@ function App() {
                 {
                     path: "monthly-stock-report",
                     element: <MonthlystockReport />,
-                    
-                }
+                },
+
             ],
         },
         {

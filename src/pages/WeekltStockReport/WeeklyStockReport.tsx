@@ -2,31 +2,28 @@ import styles from "./weeklyStockReport.module.scss";
 import type { DatePickerProps } from "antd";
 import { DatePicker } from "antd";
 import WeeklyStockTable from "../../components/WeeklyStockTable/WeeklyStockTable";
+import {useEffect, useState} from "react";
 
 const WeeklyStockReport = () => {
-    const weeklyStockData = [
-        {
-            productName: "Product A",
-            openingStockQty: 100,
-            soldStockQty: 20,
-            balanceQty: 80,
-            pricePerUnit: 10,
-            totalSales: 200,
-        },
-        {
-            productName: "Product B",
-            openingStockQty: 50,
-            soldStockQty: 10,
-            balanceQty: 40,
-            pricePerUnit: 20,
-            totalSales: 200,
-        },
-        // Add more data objects as needed
-    ];
+    const [stocks, setStocks] = useState([]);
+    const [date, setDate] = useState<string>();
 
-    const onChange: DatePickerProps["onChange"] = (date, dateString) => {
-        console.log(date, dateString);
+    useEffect(() => {
+        if(!(date===undefined || date === '' || date === null)){
+            fetch(`http://localhost:3000/report/weekly/662fcea5b132c05a8b41653e/${date}`)
+                .then((result) => {
+                    return result.json();
+                })
+                .then((jsonData) => {
+                    setStocks(jsonData.data);
+                });
+        }
+    }, [date]);
+    const onChange: DatePickerProps["onChange"] = (_date, dateString) => {
+        setDate(dateString.toString())
     };
+
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.mainContainer}>
@@ -40,7 +37,7 @@ const WeeklyStockReport = () => {
                         picker="week"
                     />
                 </div>
-                <WeeklyStockTable data={weeklyStockData} />
+                <WeeklyStockTable data={stocks} />
             </div>
             <div className={styles.buttonContainer}>
                 <button className={styles.printButton}>Print</button>

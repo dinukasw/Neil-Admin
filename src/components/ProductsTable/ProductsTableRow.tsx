@@ -4,19 +4,25 @@ import EyeIcon from "../../assets/Icons/eye-icon.svg";
 import EditIcon from "../../assets/Icons/pen-icon.svg";
 import DeleteIcon from "../../assets/Icons/delete-gray-icon.svg";
 import DeleteModal from "../DeleteModal/DeleteModal";
-import { Link } from "react-router-dom";
+
 
 interface TableRowProps {
     product: React.ReactNode;
     sku: string;
+    id:string
 }
 
-const TableRow: React.FC<TableRowProps> = ({ product, sku }) => {
+const TableRow: React.FC<TableRowProps> = ({
+    product,
+    sku,
+    id
+}) => {
     const [openModal, setOpenModal] = useState(false);
 
     return (
         <tr className={Styles.tr}>
-            <DeleteModal open={openModal} onClose={() => setOpenModal(false)} />
+            <DeleteModal type={'product'} deleteFunction={()=>{}}
+                         id={id} open={openModal} onClose={() => setOpenModal(false)} />
             <div className={Styles.td}>
                 <td className={Styles.td1}>
                     {product}
@@ -25,15 +31,13 @@ const TableRow: React.FC<TableRowProps> = ({ product, sku }) => {
                 <td className={Styles.td3}>
                     <div className={Styles.action}>
                         <button>
-                            <img src={EyeIcon} alt="View" />
+                            <img src={EyeIcon} />
                         </button>
-                        <Link to={`/add-products/${sku}`}>
-                            <button>
-                                <img src={EditIcon} alt="Edit" />
-                            </button>
-                        </Link>
+                        <button>
+                            <img src={EditIcon} />
+                        </button>
                         <button onClick={() => setOpenModal(true)}>
-                            <img src={DeleteIcon} alt="Delete" />
+                            <img src={DeleteIcon} />
                         </button>
                     </div>
                 </td>

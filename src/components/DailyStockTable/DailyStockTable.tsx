@@ -3,9 +3,9 @@ import styles from './dailyStockTable.module.scss';
 
 interface DailyStockItem {
     productName: string;
-    openingStockQty: number;
-    soldStockQty: number;
-    balanceQty: number;
+    openingStock: number;
+    soldStock: number;
+    balanceStock: number;
     pricePerUnit: number;
     totalSales: number;
 }
@@ -35,9 +35,9 @@ const DailyStockTable: React.FC<Props> = ({ data }) => {
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{item.productName}</td>
-                            <td>{item.openingStockQty}</td>
-                            <td>{item.soldStockQty}</td>
-                            <td>{item.balanceQty}</td>
+                            <td>{item.openingStock}</td>
+                            <td>{item.soldStock}</td>
+                            <td>{item.balanceStock}</td>
                             <td>{item.pricePerUnit}</td>
                             <td>{item.totalSales}</td>
                         </tr>

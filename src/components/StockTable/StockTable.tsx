@@ -6,12 +6,10 @@ import TableRow from "./StockTableRow";
 
 interface TableComponentProps {
     data: {
-      product: React.ReactNode;
+      productId: string;
       availableStock: number;
       remainingStock: number;
-      soldUnits: number;
       pricePerUnit: number;
-      totalSales: number;
     }[];
 }
 
@@ -38,15 +36,15 @@ const StockTable: React.FC<TableComponentProps> = ({ data }) => {
         const endIndex: number = startIndex + itemsPerPage;
         return data
             .slice(startIndex, endIndex)
-            .map((item, index) => (
+            .map((item) => (
                 <TableRow
-                    key={index}
-                    product={item.product}
+                    key={item.productId}
+                    product={item.productId}
                     availableStock={item.availableStock}
                     remainingStock={item.remainingStock}
-                    soldUnits={item.soldUnits}
+                    soldUnits={item.availableStock-item.remainingStock}
                     pricePerUnit={item.pricePerUnit}
-                    totalSales={item.totalSales}
+                    totalSales={(item.availableStock-item.remainingStock)*item.pricePerUnit}
                 />
             ));
     };

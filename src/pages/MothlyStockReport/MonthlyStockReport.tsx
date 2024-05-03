@@ -2,38 +2,25 @@ import styles from "./monthlyStockReport.module.scss";
 import type { DatePickerProps } from "antd";
 import { DatePicker } from "antd";
 import MonthlyStockTable from "../../components/MonthlyStockTable/MonthlyStockTable";
+import {useEffect, useState} from "react";
 
 const MonthlystockReport = () => {
-    const monthlyStockData = [
-        {
-            productName: "Product A",
-            openingStockQty: 100,
-            soldStockQty: 20,
-            balanceQty: 80,
-            pricePerUnit: 10,
-            totalSales: 200,
-        },
-        {
-            productName: "Product B",
-            openingStockQty: 50,
-            soldStockQty: 10,
-            balanceQty: 40,
-            pricePerUnit: 20,
-            totalSales: 200,
-        },
-        {
-            productName: "Product C",
-            openingStockQty: 200,
-            soldStockQty: 50,
-            balanceQty: 150,
-            pricePerUnit: 15,
-            totalSales: 750,
-        }
-        // Add more data objects as needed
-    ];
+    const [stocks, setStocks] = useState([]);
+    const [date, setDate] = useState<string>();
 
-    const onChange: DatePickerProps["onChange"] = (date, dateString) => {
-        console.log(date, dateString);
+    useEffect(() => {
+        if(!(date===undefined || date === '' || date === null)){
+            fetch(`http://localhost:3000/report/daily/662fcea5b132c05a8b41653e/${date}`)
+                .then((result) => {
+                    return result.json();
+                })
+                .then((jsonData) => {
+                    setStocks(jsonData.data);
+                });
+        }
+    }, [date]);
+    const onChange: DatePickerProps["onChange"] = (_date, dateString) => {
+        setDate(dateString.toString())
     };
     return (
         <div className={styles.wrapper}>
@@ -48,7 +35,7 @@ const MonthlystockReport = () => {
                         picker="month"
                     />
                 </div>
-                <MonthlyStockTable data={monthlyStockData} />
+                <MonthlyStockTable data={stocks} />
             </div>
             <div className={styles.buttonContainer}>
                 <button className={styles.printButton}>Print</button>

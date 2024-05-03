@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./menu.module.scss";
 import Logo from "../../assets/Logo/logo.png";
 import DashboardIcon from "../../assets/Icons/Category.svg";
@@ -10,6 +10,19 @@ import { DownOutlined } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
 
 const Menu: React.FC = () => {
+    const [locations, setLocations] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:3000/branch/", {credentials: 'include'})
+            .then((result) => {
+                return result.json();
+            })
+            .then((jsonData) => {
+                console.log(JSON.stringify(jsonData.data));
+                setLocations(jsonData.data);
+            });
+    }, []);
+
     const [reportsDropdownOpen, setReportsDropdownOpen] =
         useState<boolean>(false);
     const [productsDropdownOpen, setProductsDropdownOpen] =
@@ -52,8 +65,11 @@ const Menu: React.FC = () => {
                     {locationDropdownOpen && (
                         <div className={styles.dropDownContent}>
                             <ul>
-                                <li>Location 1</li>
-                                <li>Location 2</li>
+                                {locations.map((location:{_id:string; name:string}) => {
+                                    return (
+                                        <li key={location._id}>{location.name}</li>
+                                    );
+                                })}
                             </ul>
                         </div>
                     )}

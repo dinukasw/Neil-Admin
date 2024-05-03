@@ -2,22 +2,25 @@ import DailyStockTable from "../../components/DailyStockTable/DailyStockTable";
 import styles from "./dailyStockReport.module.scss";
 import type { DatePickerProps } from "antd";
 import { DatePicker } from "antd";
+import {useEffect, useState} from "react";
 
 const DailyStockReport = () => {
-    const dailyStockData = [
-        {
-            productName: "Product A",
-            openingStockQty: 100,
-            soldStockQty: 20,
-            balanceQty: 80,
-            pricePerUnit: 10,
-            totalSales: 200,
-        },
-        // Add more data objects as needed
-    ];
+    const [stocks, setStocks] = useState([]);
+    const [date, setDate] = useState<string>();
 
-    const onChange: DatePickerProps["onChange"] = (date, dateString) => {
-        console.log(date, dateString);
+    useEffect(() => {
+        if(!(date===undefined || date === '' || date === null)){
+            fetch(`http://localhost:3000/report/daily/662fcea5b132c05a8b41653e/${date}`)
+                .then((result) => {
+                    return result.json();
+                })
+                .then((jsonData) => {
+                    setStocks(jsonData.data);
+                });
+        }
+    }, [date]);
+    const onChange: DatePickerProps["onChange"] = (_date, dateString) => {
+        setDate(dateString.toString())
     };
     return (
         <div className={styles.wrapper}>
@@ -31,7 +34,7 @@ const DailyStockReport = () => {
                         onChange={onChange}
                     />
                 </div>
-                <DailyStockTable data={dailyStockData} />
+                <DailyStockTable data={stocks} />
             </div>
             <div className={styles.buttonContainer}>
                 <button className={styles.printButton}>Print</button>

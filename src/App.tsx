@@ -14,6 +14,7 @@ import DailyStockReport from "./pages/DailyStockReport/DailyStockReport";
 import WeeklyStockReport from "./pages/WeekltStockReport/WeeklyStockReport";
 import MonthlystockReport from "./pages/MothlyStockReport/MonthlyStockReport";
 import ViewProducts from "./pages/ViewProduct/ViewProduct";
+import ViewUser from "./pages/ViewUser/ViewUser";
 
 function App() {
     const Layout = () => {
@@ -89,7 +90,10 @@ function App() {
         {
             path: '/add-user',
             element: <AddUser />,
-
+        },
+        {
+            path: './users/:id',
+            element: <ViewUser />,
         }
     ]);
 

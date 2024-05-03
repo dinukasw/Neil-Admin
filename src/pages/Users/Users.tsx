@@ -5,6 +5,7 @@ import DeleteIcon from "../../assets/Icons/delete-gray-icon.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
+import { ArrowLeftOutlined } from "@ant-design/icons";
 
 const Users = () => {
     const [openModal, setOpenModal] = useState(false);
@@ -41,6 +42,9 @@ const Users = () => {
                     <img src={Logo} />
                 </div>
             </div>
+            <Link to={"/"}>
+                <p className={styles.backtoHome}><ArrowLeftOutlined  className={styles.icon}/>Back to Home </p>
+            </Link>
         </div>
     );
 };

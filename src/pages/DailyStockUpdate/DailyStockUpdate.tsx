@@ -12,7 +12,6 @@ const tableData = [
     },
 ];
 
-
 const DailyStockUpdate = () => {
     return (
         <div className={styles.wrapper}>
@@ -56,8 +55,8 @@ const DailyStockUpdate = () => {
                         <label htmlFor="">Cost of remaining stock</label>
                         <input type="number" />
                     </div>
-                    <button  className={styles.addButton}>Add</button>
                 </div>
+                <button className={styles.addButton}>Add</button>
                 <StockTable data={tableData} />
             </div>
             <button className={styles.submitButton}>Submit</button>

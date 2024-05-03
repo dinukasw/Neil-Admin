@@ -77,7 +77,8 @@
     color: #fff;
     cursor: pointer;
     border: none;
-    max-width: 8rem;
+    width: 8rem;
+    margin-right: 1rem;
     align-self: flex-end;
 
     &:hover{
@@ -96,6 +97,7 @@
     border: none;
     align-self: flex-end;
     margin-right: 5%;
+    width: 8rem;
 
     &:hover{
         background: #b88e2f;

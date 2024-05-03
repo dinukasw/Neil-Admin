@@ -30,6 +30,7 @@ const ViewProducts: React.FC = () => {
             <div className={styles.bottomContainer}>
                 <FileUpload />
             </div>
+            <button className={styles.submitButton}>Submit</button>
         </div>
     );
 };

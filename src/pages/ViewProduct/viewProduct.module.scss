@@ -73,3 +73,23 @@
     padding: 2rem 4rem;
     height: 15.9375rem;
 }
+
+.submitButton{
+    margin-top: 1rem;
+    align-self: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    background: #b28e00;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    align-self: flex-end;
+    margin-right: 5%;
+    width: 8rem;
+    transition: all ease-in-out 0.3s;
+
+    &:hover {
+        background: #a17a00;
+    }
+}
+

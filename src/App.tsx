@@ -13,25 +13,24 @@ import AddUser from "./pages/AddUser/AddUser";
 import DailyStockReport from "./pages/DailyStockReport/DailyStockReport";
 import WeeklyStockReport from "./pages/WeekltStockReport/WeeklyStockReport";
 import MonthlystockReport from "./pages/MothlyStockReport/MonthlyStockReport";
-import {Provider} from "react-redux";
+import ViewProducts from "./pages/ViewProduct/ViewProduct";
+import { Provider } from "react-redux";
 import store from './redux/store.ts'
 
 function App() {
     const Layout = () => {
         return (
             <div className="main">
-                <Provider store={store}>
-                    <div className="menuContainer">
-                        <Menu/>
+                <div className="menuContainer">
+                    <Menu />
+                </div>
+                <div className="contentContainer">
+                    <Navbar />
+                    <div className="outlet">
+                        <Outlet />
                     </div>
-                    <div className="contentContainer">
-                        <Navbar/>
-                        <div className="outlet">
-                            <Outlet/>
-                        </div>
-                        <Footer/>
-                    </div>
-                </Provider>
+                    <Footer />
+                </div>
             </div>
         );
     };
@@ -39,11 +38,11 @@ function App() {
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <Layout/>,
+            element: <Layout />,
             children: [
                 {
                     path: "/",
-                    element: <Dashboard/>,
+                    element: <Dashboard />,
                 },
                 {
                     path: "/products",
@@ -52,6 +51,10 @@ function App() {
                 {
                     path: "/add-products",
                     element: <AddProducts />,
+                },
+                {
+                    path: "/add-products/:id",
+                    element: <ViewProducts />,
                 },
                 {
                     path: "/daily-stock-update",
@@ -68,8 +71,8 @@ function App() {
                 {
                     path: "monthly-stock-report",
                     element: <MonthlystockReport />,
-                    
-                }
+                },
+
             ],
         },
         {

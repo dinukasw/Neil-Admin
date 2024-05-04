@@ -1,8 +1,7 @@
-import styles from "./forgotPassword.module.scss";
+import styles from "./resetPassword.module.scss";
 import Logo from "../../assets/Logo/logo.png";
-import { Link } from "react-router-dom";
 
-const ForgotPassword = () => {
+const ResetPassword = () => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.mainContainer}>
@@ -13,22 +12,23 @@ const ForgotPassword = () => {
                     </div>
                     <div className={styles.formContainer}>
                         <div className={styles.textContainer}>
-                            <p className={styles.title}>Reset Password</p>
+                            <p className={styles.title}>Enter New Password</p>
                             <p className={styles.description}>
-                                Enter your email address and we’ll send you an
-                                email with instructions to reset your password
+                                Enter your new password and confirm it to reset your password
                             </p>
                         </div>
                         <form action="" className={styles.form}>
                             <div className={styles.emailConatainer}>
-                                <label htmlFor="email">Email</label>
-                                <input type="email" id="email" />
+                                <label htmlFor="">New Password</label>
+                                <input type="" id="" />
                             </div>
-                            <Link to={"/reset-password-otp"}>
-                                <button className={styles.resetButton}>
-                                    Send OTP
-                                </button>
-                            </Link>
+                            <div className={styles.emailConatainer}>
+                                <label htmlFor="email">Confirm new passowrd</label>
+                                <input type="" id="" />
+                            </div>
+                            <button className={styles.resetButton}>
+                                Reset
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -40,4 +40,4 @@ const ForgotPassword = () => {
     );
 };
 
-export default ForgotPassword;
+export default ResetPassword;

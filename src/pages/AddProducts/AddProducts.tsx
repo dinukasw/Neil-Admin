@@ -146,7 +146,7 @@ const AddProducts: React.FC = () => {
                 )}
             </div>
         </div>
-        <button type='submit' onClick={handleSubmit}>Submit</button>
+        <button className={styles.submitButton} type='submit' onClick={handleSubmit}>Submit</button>
     </form>
   );
 };

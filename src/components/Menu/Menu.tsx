@@ -15,6 +15,9 @@ const Menu: React.FC = () => {
     const [locations, setLocations] = useState([]);
     const [currentLocation, setCurrentLocation] = useState('');
 
+    const activeLink = ` ${styles.activeLink}`;
+    const normalLink = `${styles.normalLink}`;
+
     useEffect(() => {
         sendGET(GET_BRANCHES, [])
             .then((jsonData) => {
@@ -90,14 +93,18 @@ const Menu: React.FC = () => {
                 </NavLink>
                 <p className={styles.menuTitle}>Home</p>
                 <hr />
-                <NavLink to={`/${currentLocation}`}>
+                <NavLink  className={({ isActive }) =>
+                                    isActive ? activeLink : normalLink
+                                } to={`/${currentLocation}`}>
                     <div className={styles.menuItem}>
                         <img src={DashboardIcon} alt="Dashboard Icon" />
                         <p>Dashboard</p>
                     </div>
                 </NavLink>
-                <NavLink to={`/daily-stock-update/${currentLocation}`}>
-                    <div className={styles.menuItem}>
+                <NavLink  className={({ isActive }) =>
+                                    isActive ? activeLink : normalLink
+                                } to={`/daily-stock-update/${currentLocation}`}>
+                    <div className={styles.menuItem} >
                         <img src={StockIcon} alt="Dashboard Icon" />
                         <p>Daily Stock Update</p>
                     </div>
@@ -114,13 +121,19 @@ const Menu: React.FC = () => {
                     {reportsDropdownOpen && (
                         <div className={styles.dropDownContent}>
                             <ul>
-                                <NavLink to={`daily-stock-report/${currentLocation}`}>
+                                <NavLink  className={({ isActive }) =>
+                                    isActive ? activeLink : normalLink
+                                } to={`daily-stock-report/${currentLocation}`}>
                                     <li>Daily Stock</li>
                                 </NavLink>
-                                <NavLink to={`weekly-stock-report/${currentLocation}`}>
+                                <NavLink  className={({ isActive }) =>
+                                    isActive ? activeLink : normalLink
+                                } to={`weekly-stock-report/${currentLocation}`}>
                                     <li>Weekly Stock</li>
                                 </NavLink>
-                                <NavLink to={`monthly-stock-report/${currentLocation}`}>
+                                <NavLink  className={({ isActive }) =>
+                                    isActive ? activeLink : normalLink
+                                } to={`monthly-stock-report/${currentLocation}`}>
                                     <li>Monthly Stock</li>
                                 </NavLink>
                             </ul>
@@ -139,10 +152,14 @@ const Menu: React.FC = () => {
                     {productsDropdownOpen && (
                         <div className={styles.dropDownContent}>
                             <ul>
-                                <NavLink to={"/products"}>
+                                <NavLink className={({ isActive }) =>
+                                    isActive ? activeLink : normalLink
+                                } to={"/products"}>
                                     <li>Product overview</li>
                                 </NavLink>
-                                <NavLink to={"/add-products"}>
+                                <NavLink className={({ isActive }) =>
+                                    isActive ? activeLink : normalLink
+                                } to={"/add-products"}>
                                     <li>Add Products</li>
                                 </NavLink>
                             </ul>

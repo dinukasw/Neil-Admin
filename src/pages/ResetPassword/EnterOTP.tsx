@@ -1,8 +1,8 @@
-import styles from "./forgotPassword.module.scss";
+import styles from "./enterOTP.module.scss";
 import Logo from "../../assets/Logo/logo.png";
 import { Link } from "react-router-dom";
 
-const ForgotPassword = () => {
+const EnterOTP = () => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.mainContainer}>
@@ -13,20 +13,16 @@ const ForgotPassword = () => {
                     </div>
                     <div className={styles.formContainer}>
                         <div className={styles.textContainer}>
-                            <p className={styles.title}>Reset Password</p>
-                            <p className={styles.description}>
-                                Enter your email address and we’ll send you an
-                                email with instructions to reset your password
-                            </p>
+                            <p>OTP sent to your email. Check your email adress soon. </p>
                         </div>
                         <form action="" className={styles.form}>
                             <div className={styles.emailConatainer}>
-                                <label htmlFor="email">Email</label>
+                                <label htmlFor="number">Enter your OTP</label>
                                 <input type="email" id="email" />
                             </div>
-                            <Link to={"/reset-password-otp"}>
+                            <Link to={"/reset-password"}>
                                 <button className={styles.resetButton}>
-                                    Send OTP
+                                    Reset
                                 </button>
                             </Link>
                         </form>
@@ -40,4 +36,4 @@ const ForgotPassword = () => {
     );
 };
 
-export default ForgotPassword;
+export default EnterOTP;

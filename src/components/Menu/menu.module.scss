@@ -70,32 +70,36 @@
         user-select: none;
     }
 
-    .userIcon{
+    .userIcon {
         filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(0deg)
-        brightness(100%) contrast(100%);
+            brightness(100%) contrast(100%);
     }
 }
-
 
 .dropDownMenu {
     display: flex;
     flex-direction: column;
+
+    .activeLink {
+        color: #b28e00;
+        background-color: #fff3e3;
+        cursor: pointer;
+    }
 }
 
 .dropDownMenuTop {
     display: flex;
     flex-direction: column;
-
 }
 
-.dropDownMenuItemTop{
+.dropDownMenuItemTop {
     display: flex;
     align-items: center;
     gap: 1rem;
     cursor: pointer;
     border-radius: 0.25rem;
     padding: 0.5rem 1.5rem;
-    background: #B28E00;
+    background: #b28e00;
     color: #fff;
 
     img {
@@ -115,7 +119,6 @@
         font-size: 0.9rem;
         color: #fff;
     }
-
 }
 
 .dropDownMenuItem {
@@ -125,7 +128,12 @@
     cursor: pointer;
     border-radius: 0.25rem;
     padding: 0.5rem 1.5rem;
-   
+
+    .activeLink {
+        color: #b28e00;
+        background-color: #fff3e3;
+        cursor: pointer;
+    }
 
     &:hover {
         background-color: #fff3e3;
@@ -172,9 +180,13 @@
         list-style-position: inside;
         list-style-type: style type;
 
+        .normalLink {
+            color: #8a92a6;
+        }
+
         li {
             @include typography.body-2;
-            color: #8a92a6;
+
             padding: 0.5rem 0rem 0.5rem 1rem;
             margin-left: 2rem;
             border-radius: 0.25rem;
@@ -186,5 +198,24 @@
                 cursor: pointer;
             }
         }
+    }
+}
+
+.activeLink {
+    color: #b28e00;
+    background-color: #fff3e3;
+    cursor: pointer;
+
+    .menuItem{
+        background-color: #fff3e3;
+    }
+
+    p {
+        color: #b28e00;
+    }
+
+    img {
+        filter: invert(46%) sepia(94%) saturate(712%) hue-rotate(21deg)
+        brightness(94%) contrast(101%);
     }
 }

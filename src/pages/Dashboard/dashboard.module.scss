@@ -1,7 +1,7 @@
 @use "../../styles/typography.scss";
 
 .wrappper {
-    padding: 0.5rem 1rem;
+    padding: 2rem;
 }
 
 .mainContainer {
@@ -76,12 +76,18 @@
 .bottomContainer{
     display: flex;
     gap: 3rem;
+    justify-content: space-between;
 }
 
 .calender{
     background-color: #fff;
     width: 50%;
-    padding: 1.5rem;
+    padding: 2.5rem;
+
+    .cal{
+        width: 100%;
+    
+    }
 }
 
 .chart2{

@@ -16,6 +16,8 @@ import MonthlystockReport from "./pages/MothlyStockReport/MonthlyStockReport";
 import ViewProducts from "./pages/ViewProduct/ViewProduct";
 import {history} from "./utils/common.ts";
 import {useNavigate, useLocation} from "react-router-dom";
+import EnterOTP from "./pages/ResetPassword/EnterOTP.tsx";
+import ResetPassword from "./pages/ResetPassword/ResetPassword.tsx";
 
 function App() {
     const Layout = () => {
@@ -105,6 +107,14 @@ function App() {
             path: "/forgot-password",
             element: <ForgotPassword />,
 
+        },
+        {
+            path: "/reset-password-otp",
+            element: <EnterOTP />,
+        },
+        {
+            path: "/reset-password",
+            element: <ResetPassword />,
         },
         {
             path: "/users",

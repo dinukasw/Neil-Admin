@@ -76,11 +76,6 @@ const Dashboard = () => {
                         <p className={styles.role}>{user.isSuperAdmin?'Super Admin': 'Admin'}</p>
                         <p className={styles.roleName}>- {user.username}</p>
                     </div>
-                    <div className={styles.links}>
-                        <button>Feed</button>
-                        <button>Activity</button>
-                        <button>Profile</button>
-                    </div>
                 </div>
                 <div className={styles.middleContainer}>
                     <div className={styles.chart1}>
@@ -100,11 +95,12 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div className={styles.bottomContainer}>
-                    <div style={wrapperStyle} className={styles.cal}>
+                    <div style={wrapperStyle} className={styles.calender}>
                         <Calendar
                             fullscreen={false}
                             onSelect={handleCalendarSelect}
                             onPanelChange={onPanelChange}
+                            className={styles.cal}
                         />
                     </div>
                     <div className={styles.chart2}>

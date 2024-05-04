@@ -18,6 +18,7 @@ import {history} from "./utils/common.ts";
 import {useNavigate, useLocation} from "react-router-dom";
 import EnterOTP from "./pages/ResetPassword/EnterOTP.tsx";
 import ResetPassword from "./pages/ResetPassword/ResetPassword.tsx";
+import ViewUser from "./pages/ViewUser/ViewUser.tsx";
 
 function App() {
     const Layout = () => {
@@ -119,6 +120,10 @@ function App() {
         {
             path: "/users",
             element: <Users />,
+        },
+        {
+            path: "/users/:id",
+            element: <ViewUser />,
         },
         {
             path: '/add-user',

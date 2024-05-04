@@ -4,6 +4,7 @@ import EyeIcon from "../../assets/Icons/eye-icon.svg";
 import EditIcon from "../../assets/Icons/pen-icon.svg";
 import DeleteIcon from "../../assets/Icons/delete-gray-icon.svg";
 import DeleteModal from "../DeleteModal/DeleteModal";
+import {Link} from "react-router-dom";
 
 
 interface TableRowProps {
@@ -33,11 +34,13 @@ const TableRow: React.FC<TableRowProps> = ({
                         <button>
                             <img src={EyeIcon} />
                         </button>
-                        <button>
-                            <img src={EditIcon} />
-                        </button>
+                        <Link to={`/add-products/${id}`}>
+                            <button>
+                                <img src={EditIcon}/>
+                            </button>
+                        </Link>
                         <button onClick={() => setOpenModal(true)}>
-                            <img src={DeleteIcon} />
+                        <img src={DeleteIcon} />
                         </button>
                     </div>
                 </td>

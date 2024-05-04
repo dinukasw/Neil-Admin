@@ -1,13 +1,15 @@
 
 import styles from "./addProducts.module.scss";
 import React, {useState} from "react";
-import {navigate} from "vike/client/router";
 import {CloseOutlined, CloudUploadOutlined} from "@ant-design/icons";
+import { useParams , useNavigate} from 'react-router-dom';
 
 const AddProducts: React.FC = () => {
     const [inputData, setInputData] = useState<any>({});
     const [files, setFiles] = useState<File[]>([]);
+    const {id} = useParams();
 
+    const navigate = useNavigate()
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
             const fileList = Array.from(e.target.files);
@@ -53,13 +55,14 @@ const AddProducts: React.FC = () => {
         fetch("http://localhost:3000/product/", {
             method: "POST",
             body: formData,
+            credentials :'include'
         })
             .then((result) => {
                 return result.json();
             })
             .then(async (jasonData) => {
                 if (jasonData.data._id !== undefined) {
-                    await navigate("/users");
+                    navigate('/products')
                 }
             });
     };
@@ -67,7 +70,7 @@ const AddProducts: React.FC = () => {
   return (
     <form className={styles.wrapper}>
       <div className={styles.topContainer}>
-        <p className={styles.pageTitle}>New product</p>
+        <p className={styles.pageTitle}>{id}</p>
       </div>
       <div className={styles.middleContainer}>
         <div className={styles.inputContainer}>

@@ -15,6 +15,7 @@ const AddUser = () => {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      credentials: 'include',
       body: JSON.stringify(user),
     })
       .then((result) => {
@@ -28,7 +29,7 @@ const AddUser = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3000/branch/")
+    fetch("http://localhost:3000/branch/", {credentials:'include'})
       .then((result) => {
         return result.json();
       })

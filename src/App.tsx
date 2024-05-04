@@ -14,8 +14,7 @@ import DailyStockReport from "./pages/DailyStockReport/DailyStockReport";
 import WeeklyStockReport from "./pages/WeekltStockReport/WeeklyStockReport";
 import MonthlystockReport from "./pages/MothlyStockReport/MonthlyStockReport";
 import ViewProducts from "./pages/ViewProduct/ViewProduct";
-import { Provider } from "react-redux";
-import store from './redux/store.ts'
+//
 
 function App() {
     const Layout = () => {
@@ -41,6 +40,10 @@ function App() {
             element: <Layout />,
             children: [
                 {
+                    path: "/:id",
+                    element: <Dashboard />,
+                },
+                {
                     path: "/",
                     element: <Dashboard />,
                 },
@@ -61,7 +64,15 @@ function App() {
                     element: <DailyStockUpdate />,
                 },
                 {
+                    path: "/daily-stock-update/:id",
+                    element: <DailyStockUpdate />,
+                },
+                {
                     path: "daily-stock-report",
+                    element: <DailyStockReport />,
+                },
+                {
+                    path: "daily-stock-report/:id",
                     element: <DailyStockReport />,
                 },
                 {
@@ -69,7 +80,15 @@ function App() {
                     element: <WeeklyStockReport />,
                 },
                 {
+                    path: "weekly-stock-report/:id",
+                    element: <WeeklyStockReport />,
+                },
+                {
                     path: "monthly-stock-report",
+                    element: <MonthlystockReport />,
+                },
+                {
+                    path: "monthly-stock-report/:id",
                     element: <MonthlystockReport />,
                 },
 

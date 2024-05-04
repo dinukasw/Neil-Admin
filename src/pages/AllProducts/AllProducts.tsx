@@ -5,7 +5,7 @@ import styles from "./allProducts.module.scss";
 const AllProducts = () => {
   const [tableData, setTableData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/product/")
+    fetch("http://localhost:3000/product/", {credentials: 'include'})
       .then((result) => {
         return result.json();
       })

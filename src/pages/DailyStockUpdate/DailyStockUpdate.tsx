@@ -1,44 +1,50 @@
 import StockTable from "../../components/StockTable/StockTable";
 import styles from "./dailyStockUpdate.module.scss";
 import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 
 const DailyStockUpdate = () => {
     const [stock, setStock] = useState({})
     const [stocks, setStocks] = useState([] as any)
     const [products, setProducts] = useState([]);
 
+    const {id} = useParams();
     const handleSubmit = (event: any) => {
         event.preventDefault();
-        fetch("http://localhost:3000/stock/", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({//ToDo change this to get the current branch
-                branchId: "662fcea5b132c05a8b41653e",
-                stock: stock
-            }),
-        })
-            .then((result) => {
-                return result.json();
+        if (id !== undefined&& id.length>0){
+            fetch("http://localhost:3000/stock/", {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+                credentials: 'include',
+                body: JSON.stringify({//ToDo change this to get the current branch
+                    branchId: id,
+                    stock: stock
+                }),
             })
-            .then(async (jasonData) => {
-                if (jasonData.data._id !== undefined) {
-                    const newStocks = [...stocks, jasonData.data];
-                    setStocks(newStocks)
-                }
-            });
+                .then((result) => {
+                    return result.json();
+                })
+                .then(async (jsonData) => {
+                    if (jsonData.data._id !== undefined) {
+                        const newStocks = stocks.filter((stock:any)=> (stock.productId.productName !== jsonData.data.productId.productName || stock.date !== jsonData.data.date) );
+                        newStocks.push(jsonData.data)
+                        setStocks(newStocks)
+                    }
+                });
+        }
     };
     useEffect(() => {
-        fetch("http://localhost:3000/product/")
+        fetch("http://localhost:3000/product/",{credentials: 'include'})
             .then((result) => {
                 return result.json();
             })
             .then((jsonData) => {
                 setProducts(jsonData.data);
             });//ToDo: change this to get the current branch
-        fetch("http://localhost:3000/stock/662fcea5b132c05a8b41653e")
+        fetch(`http://localhost:3000/stock/${id}`, {credentials: 'include'})
             .then((result) => {
                 return result.json();
             })
@@ -46,7 +52,7 @@ const DailyStockUpdate = () => {
                 setStocks(jsonData.data);
             });
 
-    }, []);
+    }, [id]);
     return (
         <div className={styles.wrapper}>
             <div className={styles.mainContainer}>

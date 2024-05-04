@@ -22,6 +22,7 @@ const DeleteModal: React.FC<DeleteModalProps> = ({
     url =`http://localhost:3000/${type}/`
     fetch(url + id, {
       method: "Delete",
+      credentials:'include'
     })
       .then((result) => {
         return result.json();

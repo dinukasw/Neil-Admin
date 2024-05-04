@@ -11,6 +11,7 @@ import { NavLink } from "react-router-dom";
 
 const Menu: React.FC = () => {
     const [locations, setLocations] = useState([]);
+    const [currentLocation, setCurrentLocation] = useState('');
 
     useEffect(() => {
         fetch("http://localhost:3000/branch/", {credentials: 'include'})
@@ -18,8 +19,9 @@ const Menu: React.FC = () => {
                 return result.json();
             })
             .then((jsonData) => {
-                console.log(JSON.stringify(jsonData.data));
                 setLocations(jsonData.data);
+                const firstLocation = jsonData.data[0];
+                setCurrentLocation(firstLocation._id);
             });
     }, []);
 
@@ -65,9 +67,12 @@ const Menu: React.FC = () => {
                     {locationDropdownOpen && (
                         <div className={styles.dropDownContent}>
                             <ul>
-                                {locations.map((location:{_id:string; name:string}) => {
+                                {
+                                    locations.map((location:{_id:string; name:string}) => {
                                     return (
-                                        <li key={location._id}>{location.name}</li>
+                                        <li key={location._id} onClick={()=>{
+                                            setCurrentLocation(location._id)
+                                        }}>{location.name}</li>
                                     );
                                 })}
                             </ul>
@@ -83,13 +88,13 @@ const Menu: React.FC = () => {
                 </NavLink>
                 <p className={styles.menuTitle}>Home</p>
                 <hr />
-                <NavLink to={"/"}>
+                <NavLink to={`/${currentLocation}`}>
                     <div className={styles.menuItem}>
                         <img src={DashboardIcon} alt="Dashboard Icon" />
                         <p>Dashboard</p>
                     </div>
                 </NavLink>
-                <NavLink to={"/daily-stock-update"}>
+                <NavLink to={`/daily-stock-update/${currentLocation}`}>
                     <div className={styles.menuItem}>
                         <img src={StockIcon} alt="Dashboard Icon" />
                         <p>Daily Stock Update</p>
@@ -107,13 +112,13 @@ const Menu: React.FC = () => {
                     {reportsDropdownOpen && (
                         <div className={styles.dropDownContent}>
                             <ul>
-                                <NavLink to={"daily-stock-report"}>
+                                <NavLink to={`daily-stock-report/${currentLocation}`}>
                                     <li>Daily Stock</li>
                                 </NavLink>
-                                <NavLink to={"weekly-stock-report"}>
+                                <NavLink to={`weekly-stock-report/${currentLocation}`}>
                                     <li>Weekly Stock</li>
                                 </NavLink>
-                                <NavLink to={"monthly-stock-report"}>
+                                <NavLink to={`monthly-stock-report/${currentLocation}`}>
                                     <li>Monthly Stock</li>
                                 </NavLink>
                             </ul>

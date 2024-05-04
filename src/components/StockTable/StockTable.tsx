@@ -6,7 +6,7 @@ import TableRow from "./StockTableRow";
 
 interface TableComponentProps {
     data: {
-      productId: string;
+      productId: any;
       availableStock: number;
       remainingStock: number;
       pricePerUnit: number;
@@ -38,8 +38,8 @@ const StockTable: React.FC<TableComponentProps> = ({ data }) => {
             .slice(startIndex, endIndex)
             .map((item) => (
                 <TableRow
-                    key={item.productId}
-                    product={item.productId}
+                    key={item.productId._id}
+                    product={item.productId.productName}
                     availableStock={item.availableStock}
                     remainingStock={item.remainingStock}
                     soldUnits={item.availableStock-item.remainingStock}

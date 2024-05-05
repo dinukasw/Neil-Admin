@@ -4,6 +4,8 @@ import {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import {AUTH_USER} from "../../utils/apiRoute.ts";
 import {sendPOST} from "../../utils/apiHelper.ts";
+import ErrorAlert from "../Alert/ErrorAlert.tsx";
+import SuccessAlert from "../Alert/SuccessAlert.tsx";
 
 const SignInForm = () => {
 
@@ -14,7 +16,13 @@ const SignInForm = () => {
         sendPOST(AUTH_USER, credentials)
         .then((result)=>{
             if (result.data._id){
-                navigate('/')
+                navigate('/');
+                <SuccessAlert description="Login in successful" />
+               
+
+            }
+            else{
+                <ErrorAlert description="wrong email or password" />
             }
         })
     }

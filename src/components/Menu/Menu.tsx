@@ -7,7 +7,7 @@ import ProductIcon from "../../assets/Icons/Wallet.svg";
 import StockIcon from "../../assets/Icons/stock.png";
 import UserIcon from "../../assets/Icons/user.svg";
 import { DownOutlined } from "@ant-design/icons";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {GET_BRANCHES} from "../../utils/apiRoute.ts";
 import {sendGET} from "../../utils/apiHelper.ts";
 
@@ -78,8 +78,14 @@ const Menu: React.FC = () => {
                                         <li key={location._id} onClick={()=>{
                                             setCurrentLocation(location._id)
                                         }}>{location.name}</li>
+                                        
                                     );
+                                    
+
                                 })}
+                                <NavLink to={"/locations"}>
+                                    <li>Add More</li>
+                                </NavLink>
                             </ul>
                         </div>
                     )}

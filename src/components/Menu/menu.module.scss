@@ -184,21 +184,31 @@
             color: #8a92a6;
         }
 
+
         li {
             @include typography.body-2;
-
+    
             padding: 0.5rem 0rem 0.5rem 1rem;
             margin-left: 2rem;
             border-radius: 0.25rem;
             user-select: none;
-
+    
             &:hover {
                 color: #b28e00;
                 background-color: #fff3e3;
                 cursor: pointer;
             }
         }
+
+        a{
+            text-decoration: none;
+            color: #8a92a6;
+        }
+
+        
     }
+
+    
 }
 
 .activeLink {

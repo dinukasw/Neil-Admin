@@ -61,6 +61,7 @@ const Navbar: React.FC = () => {
                 </div>
                 {dropdownVisible && (
                     <div ref={dropdownRef} className={styles.dropdownContainer}>
+                        <button>Change Password</button>
                         <button className={styles.signoutButton} onClick={handleSignOut}>Sign Out</button>
                     </div>
                 )}

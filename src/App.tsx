@@ -19,6 +19,8 @@ import {useNavigate, useLocation} from "react-router-dom";
 import EnterOTP from "./pages/ResetPassword/EnterOTP.tsx";
 import ResetPassword from "./pages/ResetPassword/ResetPassword.tsx";
 import ViewUser from "./pages/ViewUser/ViewUser.tsx";
+import Locations from "./pages/Locations/Locations.tsx";
+import AddLocation from "./pages/AddLocation/AddLocation.tsx";
 
 function App() {
     const Layout = () => {
@@ -128,7 +130,15 @@ function App() {
         {
             path: '/add-user',
             element: <AddUser />,
+        },
+        {
+            path: '/locations',
+            element: <Locations />,
 
+        },
+        {
+            path: '/add-location',
+            element: <AddLocation />,
         }
     ]);
 

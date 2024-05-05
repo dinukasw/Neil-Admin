@@ -95,57 +95,6 @@ const AddProducts: React.FC = () => {
           }}/>
         </div>
       </div>
-        <div className={styles.bottomContainer}>
-            <div
-                className={styles.uploadContainer}
-                onDragOver={handleDragOver}
-                onDrop={handleDrop}
-            >
-                {files.length === 0 ? (
-                    <>
-                        <CloudUploadOutlined className={styles.uploadIcon}/>
-                        <p className={styles.uploadText}>
-                            Drop your image here or{" "}
-                            <label htmlFor="fileInput">Browse</label>
-                        </p>
-                        <p className={styles.supportText}>Support JPG, JPEG, PNG</p>
-                        <input
-                            type="file"
-                            id="fileInput"
-                            className={styles.fileInput}
-                            onChange={handleFileChange}
-                            accept=".jpg,.jpeg,.png"
-                        />
-                    </>
-                ) : (
-                    <>
-                        <div className={styles.filePreviewContainer}>
-                            {files.map((file, index) => (
-                                <div key={index} className={styles.filePreview}>
-                                    <img
-                                        src={URL.createObjectURL(file)}
-                                        alt={`Preview ${file.name}`}
-                                        className={styles.previewImage}
-                                    />
-                                    <CloseOutlined
-                                        className={styles.closeButton}
-                                        onClick={() => handleDelete(index)}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                        <input
-                            type="file"
-                            id="fileInput"
-                            className={styles.fileInput}
-                            onChange={handleFileChange}
-                            accept=".jpg,.jpeg,.png"
-                            multiple
-                        />
-                    </>
-                )}
-            </div>
-        </div>
         <button className={styles.submitButton} type='submit' onClick={handleSubmit}>Submit</button>
     </form>
   );
